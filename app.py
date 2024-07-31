@@ -1,21 +1,28 @@
 import streamlit as st
 import pandas as pd
+import os
 
-data = pd.read_excel('data.xlsx')
 # Set title
-st.title("CSV File Uploader")
+st.title("Excel File Viewer")
 
-# File uploader for CSV
-uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
+# Define the path to the folder containing Excel files
+folder_path = 'path_to_your_folder'  # Replace with the path to your folder
 
-if uploaded_file is not None:
-    # Read the uploaded CSV file
-    df = pd.read_csv(uploaded_file)
+# List all Excel files in the folder
+excel_files = [f for f in os.listdir(folder_path) if f.endswith(('.xlsx', '.xls'))]
+
+# Select file from dropdown
+selected_file = st.selectbox("Select an Excel file", excel_files)
+
+if selected_file:
+    # Construct full file path
+    file_path = os.path.join(folder_path, selected_file)
+    
+    # Read the selected Excel file
+    df = pd.read_excel(file_path)
     
     # Display the DataFrame as a table
-    st.write("CSV File Contents:")
+    st.write(f"Contents of {selected_file}:")
     st.write(df)
 else:
-    st.write("Please upload a CSV file to view its contents.")
-
-st.write(data)
+    st.write("Please select an Excel file to view its contents.")
