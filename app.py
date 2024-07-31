@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 
+data = pd.read_excel('data.xlsx')
 # Set title
 st.title("CSV File Uploader")
 
@@ -16,3 +17,5 @@ if uploaded_file is not None:
     st.write(df)
 else:
     st.write("Please upload a CSV file to view its contents.")
+
+st.write(data)
