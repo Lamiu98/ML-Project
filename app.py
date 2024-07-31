@@ -6,7 +6,7 @@ import os
 st.title("Excel File Viewer")
 
 # Define the path to the folder containing Excel files
-folder_path = 'path_to_your_folder'  # Replace with the path to your folder
+folder_path = 'data.xlsx'  # Replace with the path to your folder
 
 # List all Excel files in the folder
 excel_files = [f for f in os.listdir(folder_path) if f.endswith(('.xlsx', '.xls'))]
