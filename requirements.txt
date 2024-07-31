@@ -1,0 +1,4 @@
+openxyl
+numpy
+pandas
+streamlit
