@@ -1,4 +1,4 @@
-pip-24.2
+pip install
 openpyxl
 numpy
 pandas
