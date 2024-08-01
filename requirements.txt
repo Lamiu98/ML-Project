@@ -1,6 +1,6 @@
+pip-upgrade
 openpyxl
 numpy
 pandas
 streamlit
 os
-pip
