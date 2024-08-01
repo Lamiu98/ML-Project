@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-st.title("Excel File Reader")
+st.title("Excel File Reader, Hoang Lam")
 
 # Upload Excel file
 uploaded_file = st.file_uploader("Choose an Excel file", type=["xlsx"])
