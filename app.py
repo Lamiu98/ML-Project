@@ -1,28 +1,29 @@
 import streamlit as st
-import pandas as pd
-import os
+import openai
 
-# Set title
-st.title("Excel File Viewer, this website made by Hoang Lam")
+# Replace with your own OpenAI API key
+openai.api_key = 'your-openai-api-key'
 
-# Define the path to the folder containing Excel files
-folder_path = 'C:\Users\Lam\OneDrive - ALLINGHAM HOLDINGS LIMITTED IN HO CHI MINH CITY\Desktop\ML Project\ML-Project'  # Replace with the path to your folder
+st.title("AI Text Generator")
 
-# List all Excel files in the folder
-excel_files = [f for f in os.listdir(folder_path) if f.endswith(('.xlsx', '.xls'))]
+st.write("This is a simple AI text generation app using OpenAI's GPT-3 model.")
 
-# Select file from dropdown
-selected_file = st.selectbox("Select an Excel file", excel_files)
+# Input from the user
+prompt = st.text_area("Enter a prompt for the AI to continue:")
 
-if selected_file:
-    # Construct full file path
-    file_path = os.path.join(folder_path, selected_file)
-    
-    # Read the selected Excel file
-    df = pd.read_excel(file_path)
-    
-    # Display the DataFrame as a table
-    st.write(f"Contents of {selected_file}:")
-    st.write(df)
-else:
-    st.write("Please select an Excel file to view its contents.")
+if st.button("Generate Text"):
+    if prompt:
+        with st.spinner('Generating...'):
+            # Generate the text using OpenAI's API
+            response = openai.Completion.create(
+                engine="text-davinci-003",  # Use the appropriate model
+                prompt=prompt,
+                max_tokens=150
+            )
+            generated_text = response.choices[0].text.strip()
+            st.write("### Generated Text")
+            st.write(generated_text)
+    else:
+        st.warning("Please enter a prompt.")
+
+st.write("Powered by Streamlit and OpenAI")
