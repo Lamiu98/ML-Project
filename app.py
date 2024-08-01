@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 # Set title
-st.title("Excel File Viewer")
+st.title("Excel File Viewer, this website made by Hoang Lam")
 
 # Define the path to the folder containing Excel files
 folder_path = 'C:\Users\Lam\OneDrive - ALLINGHAM HOLDINGS LIMITTED IN HO CHI MINH CITY\Desktop\ML Project\ML-Project'  # Replace with the path to your folder
