@@ -4,7 +4,7 @@ import openai
 # Replace with your own OpenAI API key
 openai.api_key = 'your-openai-api-key'
 
-st.title("AI Text Generator")
+st.title("AI Text Generator, developed by Hoang Lam")
 
 st.write("This is a simple AI text generation app using OpenAI's GPT-3 model.")
 
