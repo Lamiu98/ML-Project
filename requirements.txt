@@ -1,6 +1,9 @@
-pip install
-openpyxl
-numpy
-pandas
-streamlit
-os
+pip==24.2
+openpyxl==3.1.5
+
+streamlit==1.37.0
+numpy==2.0.1
+pandas==2.2.2
+# Add other dependencies here
+
+
