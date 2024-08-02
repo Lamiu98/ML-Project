@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import time
+
+
 
 st.title("Excel File Reader, Hoang Lam")
 st.header("Test")
@@ -34,3 +37,6 @@ else:
         st.write(sumcol)
     else:
         st.write('Can not sum')
+slide=st.slider("Select",1,200)  
+st.progress(value=slide)
+
