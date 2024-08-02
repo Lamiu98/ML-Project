@@ -1,10 +1,37 @@
 import streamlit as st
-from utils import PrepProcess, colu
 import pandas as pd
+import numpy as np
 
 st.title("Excel File Reader, Hoang Lam")
-st.markdown("_Prototype v0.4.1_")
+st.header("Test")
+st.subheader("_Prototype v0.4.sad1_sad")
+st.markdown("_Prototype v0.4.sad1_sad")
+st.code("import streamlit: 2+1=3")
 
+st.button("Submit",type="primary")
+st.button("Clear",type="secondary")
+a="1"
+ten=st.text_input("Nhap ten cua ban")
 
-df = pd.read_excel ("./data.xlsx")
+st.write(ten+" " + a)
+
+file=st.file_uploader("Upload file")
+if file is None:
+    st.write("Upload your file")
+else:
+    st.write(file.size)
+    st.write(file.name)
+    st.download_button("Download file",data=file,file_name=file.name)
+
+col1,col2=st.columns(2)
+with col1:
+    st.button("Button 1")
+with col2:
+    st.button("Button 2")
+
+df = pd.read_excel(file)
+columns= df.columns.tolist()
 st.dataframe(df)
+header=st.selectbox("Select column",columns)
+
+st.dataframe(df[header])
