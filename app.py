@@ -10,4 +10,4 @@ def load_data(path:str):
     return data
 
 df = load_data("./data.xlsx")
-st.dataframe(df)
+st.excepander.dataframe(df)
