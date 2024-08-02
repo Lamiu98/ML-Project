@@ -22,16 +22,15 @@ else:
     st.write(file.size)
     st.write(file.name)
     st.download_button("Download file",data=file,file_name=file.name)
+    df = pd.read_excel(file)
+    columns= df.columns.tolist()
+    st.dataframe(df)
+    header=st.selectbox("Select column",columns)
 
-col1,col2=st.columns(2)
-with col1:
-    st.button("Button 1")
-with col2:
-    st.button("Button 2")
+    st.dataframe(df[header])
 
-df = pd.read_excel(file)
-columns= df.columns.tolist()
-st.dataframe(df)
-header=st.selectbox("Select column",columns)
-
-st.dataframe(df[header])
+    if pd.api.types.is_numeric_dtype(df[header]):
+        sumcol=df[header].sum()
+        st.write(sumcol)
+    else:
+        st.write('Can not sum')
