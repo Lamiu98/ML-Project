@@ -10,5 +10,4 @@ def load_data(path:str):
     return data
 
 df = load_data("./data.xlsx")
-with st.expander("Data preview"):
-    st.dataframe(df)
+st.dataframe(df)
