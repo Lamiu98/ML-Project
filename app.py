@@ -40,3 +40,12 @@ else:
 slide=st.slider("Select",1,200)  
 st.progress(value=slide)
 
+st.sidebar.title("Menu")
+sidebar_selectbox = st.sidebar.selectbox(
+    "Chọn một tùy chọn",
+    ("Tùy chọn 1", "Tùy chọn 2", "Tùy chọn 3")
+)
+
+st.info("Information")
+
+st.markdown("[Nhấn vào đây để mở URL](https://onedrive.live.com/?cid=7A5A68FA60C27F21&id=7A5A68FA60C27F21%2126387&parId=7A5A68FA60C27F21%2126233&o=OneUp)")
